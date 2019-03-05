@@ -79,36 +79,42 @@ let appData = {
     chooseIncome: function () {
         for (let index = 1; index < 2; index++) {
 
+            // let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
+
+
             let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
-            appData.income = items.split(', ');
+            console.log(typeof items);
             if (items === null) {
                 index--;
-
             } else
-            for (let i = 0; i < appData.income.length; i++) {
-                if (appData.income[i].match(/^\d+$/)) {
-                    console.log(typeof appData.income[i] + "test2");
-                    console.log(appData.income[i + 'test']);
-                    items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
+                if (!items.match(/^\d+$/) && items != "") {
+
+                    appData.income = items.split(', ');
+                    appData.income.push(prompt("Может что то еще?"));
+                    appData.income.sort();
+                    // appData.income.unshift(undefined);
+                } else {
                     index--;
                 }
-                
-            }
 
-
-          
-                
-            }
-                
-            // if (!appData.income.match(/^\d+$/) && items != "" ) {
-                    
-                // appData.income.push(prompt("Может что то еще?"));
-                // appData.income.sort();
-                // console.log(index);
-                
-            // } else {
+            // appData.income = items.split(', ');
+            // if (items === null) {
             //     index--;
-            // }
+            // } else {
+            // for (let i = 0; i < appData.income.length; i++) {
+            //     if (appData.income[i].match(/^\d+$/)) {
+            //         console.log(typeof appData.income[i] + "test2");
+            //         console.log(appData.income[i + 'test']);
+            //         items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
+            //         index--;
+            //     } else {  appData.income.push(prompt("Может что то еще?"));
+            //         appData.income.sort();
+            //         console.log(index);} }}
+                  
+                
+            }
+                
+       
            
             } 
             
