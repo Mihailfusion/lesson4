@@ -80,21 +80,42 @@ let appData = {
         for (let index = 1; index < 2; index++) {
 
             let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
-            console.log(typeof items);
+            appData.income = items.split(', ');
             if (items === null) {
                 index--;
-            } else
-                if (!items.match(/^\d+$/) && items != "") {
 
-                    appData.income = items.split(', ');
-                    appData.income.push(prompt("Может что то еще?"));
-                    appData.income.sort();
-                    // appData.income.unshift(undefined);
-                } else {
+            } else
+            for (let i = 0; i < appData.income.length; i++) {
+                if (appData.income[i].match(/^\d+$/)) {
+                    console.log(typeof appData.income[i] + "test2");
+                    console.log(appData.income[i + 'test']);
+                    items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
                     index--;
                 }
-        }
-    }
+                
+            }
+
+
+          
+                
+            }
+                
+            // if (!appData.income.match(/^\d+$/) && items != "" ) {
+                    
+                // appData.income.push(prompt("Может что то еще?"));
+                // appData.income.sort();
+                // console.log(index);
+                
+            // } else {
+            //     index--;
+            // }
+           
+            } 
+            
+            // console.log(appData.income);
+           
+        
+    
 
 };
 appData.chooseIncome();
